@@ -1,0 +1,58 @@
+parse_user_intent:
+  description: >
+    Receive the user's free-text query AND resume text.
+    Extract and normalize:
+      - target job role/title
+      - city and state preference (if present)
+      - technical skills
+      - role-related keywords
+    Do NOT infer or hallucinate missing data.
+  expected_output: >
+    {
+      "role": "...",
+      "city": "...",
+      "state": "...",
+      "skills": [...],
+      "keywords": [...]
+    }
+  agent: parser_agent
+
+
+find_sponsoring_employers:
+  description: >
+    Using the city and state provided by the parser agent,
+    query the sponsorship MCP server for employers who have
+    historically sponsored visas.
+  expected_output: >
+    [
+      {
+        "employer": "...",
+        "approvals": ...,
+        "city": "...",
+        "state": "..."
+      }
+    ]
+  agent: sponsor_agent
+
+
+discover_matching_jobs:
+  description: >
+    Using:
+      - role from parser agent
+      - employer list from sponsor agent
+    Query the Job MCP server to find current openings.
+    Return ONLY jobs where:
+      - employer matches sponsor list
+      - role/title is relevant
+  expected_output: >
+    [
+      {
+        "company": "...",
+        "role": "...",
+        "location": "...",
+        "jd_text": "...",
+        "skills_required": [...]
+      }
+    ]
+  agent: job_agent
+

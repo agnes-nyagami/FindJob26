@@ -1,0 +1,26 @@
+[project]
+name = "job26"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10,<3.14"
+dependencies = [
+    "crewai[openai]>=1.8.1",
+    "crewai[tools]==1.8.1"
+]
+
+
+[project.scripts]
+gjob = "gjob.main:run"
+run_crew = "gjob.main:run"
+train = "gjob.main:train"
+replay = "gjob.main:replay"
+test = "gjob.main:test"
+run_with_trigger = "gjob.main:run_with_trigger"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "crew"
