@@ -1,4 +1,5 @@
 ## Agentic Job Search System
+'''text  
 +----------------------+
 |        User          |
 |  Query + Resume      |
@@ -34,7 +35,7 @@
 +----------------------+
 |  Sponsored Job List  |
 +----------------------+
-
+'''
 # 🧩 Architecture Overview
 1️⃣ Parser Agent -This agent converts unstructured inputs into structured job intent.
 '''bash
@@ -70,27 +71,28 @@ Action:
 Queries a JobSpy MCP server that scrapes live job postings
 
 Output:
-Active job openings only at sponsoring companies
+Active job openings only at sponsoring companies  
 
-# 🔌 MCP Servers
-🔹 Sponsorship MCP
-Serves historical visa sponsorship data
-Normalizes employer names
-Filters by city/state
-Acts as a hard gatekeeper for sponsor eligibility
+# 🔌 MCP Servers  
+🔹 Sponsorship MCP  
+Serves historical visa sponsorship data  
+Normalizes employer names  
+Filters by city/state  
+Acts as a hard gatekeeper for sponsor eligibility  
 
-🔹 JobSpy MCP
-Wraps python-jobspy behind an MCP interface
-Scrapes Indeed, LinkedIn, and ZipRecruiter
-Requires:
-role
-location
-non-empty sponsor employer list
+🔹 JobSpy MCP  
+Wraps python-jobspy behind an MCP interface  
+Scrapes Indeed, LinkedIn, and ZipRecruiter  
+Requires:  
+role  
+location  
+non-empty sponsor employer list   
 
-# 🛠️ Tech Stack
-CrewAI – agent orchestration
-MCP (FastMCP) – tool & data servers
-SQLITE - database management
-python-jobspy – live job scraping
-Pandas – data handling
-Python 3.10+
+# 🛠️ Tech Stack  
+CrewAI – agent orchestration  
+MCP (FastMCP) – tool & data servers  
+SQLITE - database management   
+python-jobspy – live job scraping  
+Pandas – data handling  
+Python 3.10+  
+
