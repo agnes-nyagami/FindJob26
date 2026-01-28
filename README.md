@@ -1,6 +1,6 @@
 ## Agentic Job Search System
-This project is an agentic job search system designed to identify job openings at companies with verified visa sponsorship history. It combines resume parsing, historical sponsorship data, and live job scraping into a deterministic, sponsor-aware pipeline powered by CrewAI and MCP servers.  
-'''text  
+# This project is an agentic job search system designed to identify job openings at companies with verified visa sponsorship history. It combines resume parsing, historical sponsorship data, and live job scraping into a deterministic, sponsor-aware pipeline powered by CrewAI and MCP servers.  
+'''text   
 +----------------------+
 |        User          |
 |  Query + Resume      |
@@ -36,14 +36,14 @@ This project is an agentic job search system designed to identify job openings a
 +----------------------+
 |  Sponsored Job List  |
 +----------------------+  
-'''
+'''  
 # 🧩 Architecture Overview  
 1️⃣ Parser Agent -This agent converts unstructured inputs into structured job intent.  
 '''bash  
 Input:  
 - User free-text query  
 - Resume text  
-'''
+'''  
 Output:  
 - Target job role  
 - City & state  
@@ -54,37 +54,32 @@ Output:
 
 Input:  
 - City and state from the parser agent  
-
 Action:  
 - Queries a Sponsorship MCP server backed by historical visa approval data  
-
 Output:  
 - Deduplicated list of employers with prior sponsorship approvals in the specified location  
 
 3️⃣ Job Agent - Jobs are filtered post-scrape to guarantee employer validity.  
-
 Input:  
 - Job role (from parser agent)   
 - Employer list (from sponsor agent)  
 - Location  
-
 Action:  
 - Queries a JobSpy MCP server that scrapes live job postings  
-
 Output:  
 - Active job openings only at sponsoring companies    
 
 # 🔌 MCP Servers    
-🔹 Sponsorship MCP  
+# 🔹 Sponsorship MCP  
 - Serves historical visa sponsorship data  
 - Normalizes employer names  
 - Filters by city/state  
 - Acts as a hard gatekeeper for sponsor eligibility  
 
-🔹 JobSpy MCP  
+# 🔹 JobSpy MCP  
 - Wraps python-jobspy behind an MCP interface  
 - Scrapes Indeed, LinkedIn, and ZipRecruiter  
-Requires:  
+# Requires:  
 - role  
 - location  
 - non-empty sponsor employer list   
@@ -96,5 +91,6 @@ SQLITE - database management
 python-jobspy – live job scraping  
 Pandas – data handling  
 Python 3.10+  
+
 
 
