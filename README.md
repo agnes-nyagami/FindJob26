@@ -1,0 +1,1 @@
+This project is an agentic job search system designed to identify job openings at companies with verified visa sponsorship history. It combines resume parsing, historical sponsorship data, and live job scraping into a deterministic, sponsor-aware pipeline powered by CrewAI and MCP servers.
